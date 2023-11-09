@@ -17,13 +17,13 @@ class StudentController extends Controller
 			
         if (!empty($students)) {
 			$response = [
-				'message' => 'Menampilkan Data Semua Siswa',
+				'message' => 'Menampilkan Data Semua Student',
 				'data' => $students,
 			];
 			return response()->json($response, 200);
 		} else {
 			$response = [
-				'message' => 'Data not found'
+				'message' => 'Data tidak ada'
 			];
 			return response()->json($response, 200);
 		}
@@ -34,7 +34,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        // create	
+        //
     }
 
     /**
@@ -42,10 +42,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+
 		$student = Student::create($request->all());
 
 		$response = [
-			'message' => 'Data Sisa Berhasil Dibuat',
+			'message' => 'Data Student Berhasil Dibuat',
 			'data' => $student,
 		];
 
@@ -56,13 +57,15 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
+
+	 // TUGAS PERTEMUAN 6
     public function show(string $id)
     {
         $student = Student::find($id);
 
 		if ($student) {
 			$response = [
-				'message' => 'Get detail siswa',
+				'message' => 'Get detail student',
 				'data' => $student
 			];
 	
@@ -93,7 +96,7 @@ class StudentController extends Controller
 
 		if ($student) {
 			$response = [
-				'message' => 'Data Sisa berhasil diupdate',
+				'message' => 'Student is updated',
 				'data' => $student->update($request->all())
 			];
 	
@@ -116,7 +119,7 @@ class StudentController extends Controller
 
 		if ($student) {
 			$response = [
-				'message' => 'Data Sisa berhasil dihapus',
+				'message' => 'Student is delete',
 				'data' => $student->delete()
 			];
 
